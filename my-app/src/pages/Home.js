@@ -5,7 +5,7 @@ import ListaDeNoticias from '../components/ListaDeNoticias./ListaDeNoticias';
 
 function Home() {
   const escritos = []
-  alert("home foi atualizada")
+  console.log("home foi atualizada")
 
   function increver (func){
     escritos.push(func)

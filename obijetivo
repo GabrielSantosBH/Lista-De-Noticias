@@ -1,0 +1,51 @@
+cadastrar noticias  e mostrar  com titulo e um nome no  memes apos reniciar a pagina ela
+
+cadastrar noticias
+
+tem um campo titulo 
+tem um campo noticia
+tem um capo imagem
+tem um button  enviar
+
+funcinalidades
+    ele vai guardar essa noticia
+
+
+mostrar noticia
+e um card
+tem um titulo 
+tem uma imagem
+tem o noticia
+
+funcinalidades 
+
+deletar noticia 
+
+entrada : index
+processamento :
+    pegar no armazenmento storage e dar um splice
+saida: deletar
+ 
+logica -- 
+
+entrada
+processamento 
+sai 
+
+
+entrada : o que foi modificado
+
+processamento : 
+    modificar o estate da lita 
+sai : notidicar o lista de noticias
+
+entrada : noticia
+processamento: 
+    pegar  titulo,noticia,imagem 
+    transformar em um dado
+    atulizar o storage no o novo dado  
+    notificar para a lista que o storage foi atulizado
+
+saida: guardar no storage
+
+
