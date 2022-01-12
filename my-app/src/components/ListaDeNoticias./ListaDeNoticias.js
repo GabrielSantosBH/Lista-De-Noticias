@@ -1,49 +1,33 @@
 import React, { useEffect, useState } from "react";
 
 function ListaDeNoticias(props) {
-  console.log("a lista Foi atualizado ");
-  props.inscrever(atualizarPagina);
+  const [noticias,setNoticias] = useState([])
 
-  const [noticias, setNoticias] = useState(
-    JSON.parse(sessionStorage.getItem("noticias")) || []
-  );
-
-
-  function atualizarPagina(noticiasAtulizados) {
-    setNoticias(noticiasAtulizados);
-  }
-
-  function deletar(i) {
-    
-    noticias.splice(i, 1);
-    sessionStorage.setItem("noticias",JSON.stringify(noticias))
-    setNoticias(noticias);
   
+  useEffect(()=>{
+    props.noticias.increver(atualizar)
 
+    return function clear (){
+      props.noticias.desinscrever(atualizar)
+    }
+})
 
-   
-    
+  function atualizar(NovaNoticia){
+    setNoticias([...noticias,NovaNoticia])
   }
-
   return (
-    <ul>
-      {noticias.map((noticia, index) => {
-           console.log(noticia);
-        return (
-           
-          <li key={index}>
-            {noticia.titulo} {noticia.imagem} {noticia.noticia}
-            <button
-              onClick={(e) => {
-                deletar(index);
-              }}
-              >
-                  deleletar 
-            </button>
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      <ul>
+        {props.noticias.noticias.map((noticia, index) => {
+          return (
+            <li key={index}>
+              {(noticia.titulo, noticia.imagem, noticia.notica)}
+              <button onClick={props.apagarNoticias(index)}> deletar </button>
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
 }
 
