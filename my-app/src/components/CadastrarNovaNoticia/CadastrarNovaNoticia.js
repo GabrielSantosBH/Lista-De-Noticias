@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import "./estilo.css"
+import { TextField,TextareaAutosize,Button  } from "@material-ui/core"
 
 function CadastrarNovaNoticia(props) {
-  let titulo = "";
-  let imagem = "";
-  let notica = "";
+  const [titulo,setTitulo] = useState("");
+  const [imagem ,setImagem] = useState("");
+  const  [notica,setNotica]= useState( "nova Noticia" ) ;
   function hendleTitulo(e) {
-    titulo = e;
+    setTitulo(e);
   }
   function hendleImagem(e) {
-    imagem = e;
+    setImagem ( e );
   }
   function hendleNoticia(e) {
-    notica = e;
+    setNotica( e);
   }
 
   return (
@@ -22,7 +24,12 @@ function CadastrarNovaNoticia(props) {
           e.preventDefault();
         }}
       >
-        <input
+        <TextField 
+        value={titulo}
+        fullWidth
+        id="titrulo" 
+        label="Titulo Da Notica " 
+        margin="normal"
           onChange={(e) => {
             hendleTitulo(e.target.value);
           }}
@@ -30,7 +37,9 @@ function CadastrarNovaNoticia(props) {
           placeholder="Titulo"
           required
         />
-        <input
+        <TextField id="imagem" label="imagem" margin="normal"
+        value={imagem}
+        fullWidth
           onChange={(e) => {
             hendleImagem(e.target.value);
           }}
@@ -38,15 +47,14 @@ function CadastrarNovaNoticia(props) {
           placeholder="https://alguma imagem web"
           required
         />
-        <textarea
+        <textarea className="textArea"  rows="10" cols="120"
+        value={notica}
           onChange={(e) => {
             hendleNoticia(e.target.value);
           }}
-        >
-          
-          noticia
-        </textarea>
-        <button type="submit">add</button>
+        ></textarea>
+
+        <Button variant="contained" margin="normal" color="primary" type="submit" fullWidth  >Adicinar Nova Noticias </Button>
       </form>
     </>
   );

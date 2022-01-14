@@ -1,27 +1,33 @@
 export default function Noticia() {
-  var noticias = JSON.parse(localStorage.getItem("noticias")||[]) ;
+  const noticias = JSON.parse(localStorage.getItem("noticias"))||[] 
   var escritos = [];
 
   function increver(func) {
     escritos.push(func);
   }
+
   function atualizarStorage(e) {
 
     localStorage.setItem("noticias",JSON.stringify(e));
   }
+
   function desinscrever(func) {
     escritos = escritos.filter((f) => f !== func);
   }
-  function notificar() {
-    escritos.forEach((func) => func(noticias));
+
+  function notificar(noticias) {
+    escritos.forEach((func) => {
+      func(noticias)
+    });
   }
 
   function adicinarNoticia(NovaNoticia) {
-    const noticasAtulizada = [...noticias,NovaNoticia]
-    noticias = noticasAtulizada
-    console.log(noticias);
+    
+    noticias.push(NovaNoticia)
     atualizarStorage(noticias);
-    notificar();
+    notificar(noticias);
+
+
   }
   function apagarNoticia(index) {
     noticias.splice(index, 1);
